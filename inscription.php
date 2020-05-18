@@ -1,7 +1,10 @@
 <?php
 session_start();
 $db= mysqli_connect("localhost","root","","moduleconnexion");
+
 $wrongpwd=null;
+$message=null;
+
 
 if(isset($_POST["connected"])){
     $login= $_POST["login"];
@@ -11,15 +14,25 @@ if(isset($_POST["connected"])){
     $password_repeat=$_POST["confirm-pwd"];
 
     if(!empty($login) && !empty($prenom) && !empty($nom) && !empty($password) && !empty($password_repeat)){
-      
-        if($password === $password_repeat){
-            $requete= "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$password')";
-            $query= mysqli_query($db, $requete);
-            header("location:connexion.php");
-        }
-        else{
-           $wrongpwd="Mot de passe différent" ;
-        }
+        $requete2="SELECT * FROM `utilisateurs` WHERE login='$login'";
+        $query2=mysqli_query($db, $requete2);
+        $data=mysqli_fetch_all($query2);
+            if(count($data) == 0){
+                if($password === $password_repeat){
+                    $requete= "INSERT INTO `utilisateurs`(`login`, `prenom`, `nom`, `password`) VALUES ('$login', '$prenom', '$nom', '$password')";
+                    $query= mysqli_query($db, $requete);
+                    header("location:connexion.php");
+                }
+                else{
+                $wrongpwd="Mot de passe différent" ;
+                }
+
+            }
+            elseif(count($data)==1){
+                $message="Login déjà utilisé";
+            }
+        
+        
     }
 }
 
@@ -43,6 +56,11 @@ if(isset($_POST["connected"])){
             <?php if($wrongpwd): ?>
                 <div class="error">
                     <?= $wrongpwd ?>
+                </div>
+            <?php endif; ?>
+            <?php if($message): ?>
+                <div class="error">
+                    <?= $message ?>
                 </div>
             <?php endif; ?>
             
