@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    height: 100vh;
+}
+nav ul{
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+main{
+    background: url(src/img/mockup-863469_1920.jpg) no-repeat center fixed;
+    background-size:cover;
+    height: 80vh;
+}  
+.accueil-titre{
+    color: white;
+    font-size: 5em;
+    margin: 5%;
+}
+.container{
+    width: 50%;
+    height: 80vh;
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.sub-container{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    
+}
+.accueil-bouton{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 0.5em;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 3px 1px 19px 0px rgba(0,0,0,0.75);
+
+
+}
+
+/*Inscription*/
+.inscription_container{
+    height: 80vh;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-align: center;
+    height: 100%;
+
+}
+label{
+    padding: 1%;
+}
+input{
+    width:30%;
+    height: 8%;
+    border-radius: 10px;
+}
+button{
+   margin-top: 2%;
+   width:15% ;
+   border-radius: 10px;
+   padding: 1%;
+   background: white;
+   box-shadow: 3px 1px 19px 0px rgba(0,0,0,0.75);
+   font-weight: bold;
+}
+.connexion-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.form-connexion{
+    height: 50vh;
+}
+/*Identifiants incorrect*/
+
+.error{
+    font-weight: bold;
+    color: red;
+}
