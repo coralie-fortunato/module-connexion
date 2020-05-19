@@ -1,30 +1,30 @@
 <?php
 $db= mysqli_connect("localhost","root","","moduleconnexion");
-$requete="SELECT `login` FROM `utilisateurs` ";
-$requete2="SELECT `password` FROM `utilisateurs` ";
+$requete="SELECT * FROM `utilisateurs` ";
 $query=mysqli_query($db,$requete);
-$query2=mysqli_query($db,$requete2);
-$logins=mysqli_fetch_all($query);
-$passwords=mysqli_fetch_all($query2);
+
+$data= mysqli_fetch_all($query);
 
 $erreur=null;
 
+
 if(!empty($_POST["login"]) && !empty($_POST["password"])) {
-    foreach($logins[0] as $key=> $value){
-       if($_POST["login"] === $value ){
-          foreach($passwords[0] as $keys=>$pwd){
-              if($_POST["password"] === $pwd){
-                  session_start();
-                  header("location:index.php");
-              }
-              else{
-                $erreur="Identifiants ou mot de passe incorrects";}
-          }
+    foreach($data as $key=> $value){
+        
+       if($_POST["login"] === $data[$key][1] && $_POST["password"]=== $data[$key][4]){
+        session_start();
+        $_SESSION["connected"]=1;
+        $_SESSION["login"]= $_POST["login"];
+        header("location:index.php");
         }
-       else{
-           $erreur="Identifiants ou mot de passe incorrects";
-       }
+        else{
+            $erreur="Identifiants ou mot de passe incorrects";}
+       
+    
     }
+   
+    
+   
 }
 
 

@@ -20,7 +20,7 @@ a{
     color: black;
 }
 main{
-    background: url(src/img/mockup-863469_1920.jpg) no-repeat center fixed;
+    background: url(src/img/mockup-863469_1920.jpg) no-repeat center ;
     background-size:cover;
     height: 80vh;
 }  
