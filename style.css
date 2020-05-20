@@ -7,9 +7,8 @@
     padding: 0;
 
 }
-body{
-    height: 100vh;
-}
+
+
 nav ul{
     display: flex;
     justify-content: space-around;
@@ -22,8 +21,9 @@ a{
 main{
     background: url(src/img/mockup-863469_1920.jpg) no-repeat center ;
     background-size:cover;
-    height: 80vh;
+    height: 100vh;
 }  
+
 .accueil-titre{
     color: white;
     font-size: 5em;
@@ -95,9 +95,43 @@ button{
 .form-connexion{
     height: 50vh;
 }
-/*Identifiants incorrect*/
+/*Message utilisateur*/
 
 .error{
     font-weight: bold;
     color: red;
 }
+/* Page administrateur*/
+.main_admin{
+    background: linear-gradient(135deg, #1e5799 0%,#2989d8 39%,#2989d8 39%,#2989d8 42%,#207cca 45%,#2989d8 50%,#7db9e8 56%,#7db9e8 56%);
+    height: 90vh;
+    
+}
+.main_admin h1{
+    color: white;
+}
+.main_content{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.table_admin {
+    width: 50%;
+    border: 2px solid rgb(200, 200, 200);
+
+}
+.table_admin th{
+    background-color:#353b48 ;
+    color: white;
+}
+.table_admin tr:nth-child(even){
+    background-color:#CFD8DC ;
+}
+
+.table_admin tr:nth-child(odd){
+    background-color:#B0BEC5 ;
+
+}
+

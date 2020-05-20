@@ -17,6 +17,7 @@ if(isset($_SESSION["login"])){
 }  
 $message=null;
 $wrongpwd=null;
+$message_login=null;
 if(isset($_POST["modifier"]) ){
     $login= $_POST["login"];
     $prenom= $_POST["prenom"];
@@ -28,42 +29,44 @@ if(isset($_POST["modifier"]) ){
 
     if($password=$password_repeat){
         if($data["nom"] != $nom){
-        
+            
             mysqli_query($db, $req_update);
-
             header("location:profil.php");
-            $message="Votre profil a été mis à jour avec succès";
+            
 
         }
         if($data["prenom"] != $prenom){
         
             mysqli_query($db, $req_update);
-
             header("location:profil.php");
-            $message="Votre profil a été mis à jour avec succès";
+           
         }
         
         if($data["login"] != $login){
-
             mysqli_query($db, $req_update);
-
-            header("location:profil.php");
-            $message="Votre profil a été mis à jour avec succès";
+            header("location:connexion.php");
+           
+        
+            
         }
         if($data["password"] != $password){
         
             mysqli_query($db, $req_update);
-
             header("location:profil.php");
-            $message="Votre profil a été mis à jour avec succès";
+            
 
         }
+      
     } 
     else{
         $wrongpwd="Mot de passe différent" ;
     }   
+ 
     
-  
+    
+}
+else{
+    $message="Votre profil a été mis à jour avec succès";
 }
 
 
@@ -78,9 +81,10 @@ if(isset($_POST["modifier"]) ){
 </head>
 <body>
     <header>
-        <h1>Modifier mon profil</h1>
+        
     </header>
     <main>
+    <h1>Modifier mon profil</h1>
        <div class="inscription_container">
             <?php if($wrongpwd): ?>
                 <div class="error">
@@ -90,6 +94,11 @@ if(isset($_POST["modifier"]) ){
             <?php if($message): ?>
                 <div class="error">
                     <?= $message ?>
+                </div>
+            <?php endif; ?>
+            <?php if($message_login): ?>
+                <div class="error">
+                    <?= $message_login ?>
                 </div>
             <?php endif; ?>
             

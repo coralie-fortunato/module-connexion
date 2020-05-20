@@ -1,4 +1,5 @@
 <?php
+
 $db= mysqli_connect("localhost","root","","moduleconnexion");
 $requete="SELECT * FROM `utilisateurs` ";
 $query=mysqli_query($db,$requete);
@@ -7,16 +8,26 @@ $data= mysqli_fetch_all($query);
 
 $erreur=null;
 
-
+if(!empty($_POST["login"]) && !empty($_POST["password"])){
+    if($_POST["login"] === "admin" && $_POST["password"] === "admin" ){
+        session_start();
+        $_SESSION["connected"]=0;
+        header("location:admin.php");
+    }
+}
 if(!empty($_POST["login"]) && !empty($_POST["password"])) {
     foreach($data as $key=> $value){
+    
         
-       if($_POST["login"] === $data[$key][1] && $_POST["password"]=== $data[$key][4]){
+        
+       if($_POST["login"] === $data[$key][1] && $_POST["password"]=== $data[$key][4]  && $_POST["login"] != "admin" && $_POST["password"] !="admin"){
         session_start();
         $_SESSION["connected"]=1;
         $_SESSION["login"]= $_POST["login"];
         header("location:index.php");
-        }
+       }
+   
+       
         else{
             $erreur="Identifiants ou mot de passe incorrects";}
        
@@ -26,6 +37,9 @@ if(!empty($_POST["login"]) && !empty($_POST["password"])) {
     
    
 }
+
+
+
 
 
 ?>
