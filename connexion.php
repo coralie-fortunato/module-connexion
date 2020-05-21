@@ -1,5 +1,5 @@
 <?php
-
+require_once "function.php";
 $db= mysqli_connect("localhost","root","","moduleconnexion");
 $requete="SELECT * FROM `utilisateurs` ";
 $query=mysqli_query($db,$requete);
@@ -11,7 +11,9 @@ $erreur=null;
 if(!empty($_POST["login"]) && !empty($_POST["password"])){
     if($_POST["login"] === "admin" && $_POST["password"] === "admin" ){
         session_start();
-        $_SESSION["connected"]=0;
+        
+        $_SESSION["connected"]=1;
+        $_SESSION["login"]= $_POST["login"];
         header("location:admin.php");
     }
 }
@@ -53,9 +55,11 @@ if(!empty($_POST["login"]) && !empty($_POST["password"])) {
 </head>
 <body>
     <header>
-        <h1>Connexion</h1>
+    <?php include("header.php");?>
+        
     </header>
     <main class="connexion-container">
+    <h1>Connexion</h1>
         <?php if($erreur): ?>
         <div class="error">
           <p><?=  $erreur ?></p>

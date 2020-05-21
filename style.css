@@ -1,14 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 *{
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    
     text-align: center;
     margin: 0;
     padding: 0;
 
 }
-
-
+header{
+    height: 10vh;
+}
+header h1{
+    font-family: 'Pacifico', cursive;
+    
+}
 nav ul{
     display: flex;
     justify-content: space-around;
@@ -22,6 +28,7 @@ main{
     background: url(src/img/mockup-863469_1920.jpg) no-repeat center ;
     background-size:cover;
     height: 100vh;
+    font-family: 'Roboto', sans-serif;
 }  
 
 .accueil-titre{

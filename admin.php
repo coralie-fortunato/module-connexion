@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION["connected"] != 0){
+if($_SESSION["login"] != "admin"){
     header("location:index.php");
 }
 
@@ -15,7 +15,7 @@ $query2=mysqli_query($db, $requete2);
 $data_users=mysqli_fetch_all($query);
 $column_name= mysqli_fetch_all($query2);
 
-
+require_once "function.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +27,7 @@ $column_name= mysqli_fetch_all($query2);
 </head>
 <body>
     <header>
+    <?php include("header.php");?>
 
     </header>
     <main class="main_admin">

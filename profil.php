@@ -28,46 +28,26 @@ if(isset($_POST["modifier"]) ){
     `prenom`='$prenom',`nom`='$nom',`password`='$password' WHERE login='".$_SESSION["login"]."'";
 
     if($password=$password_repeat){
-        if($data["nom"] != $nom){
+        if($data["nom"] != $nom || $data["prenom"] != $prenom || $data["login"] != $login || $data["password"] != $password ){
             
             mysqli_query($db, $req_update);
             header("location:profil.php");
             
 
         }
-        if($data["prenom"] != $prenom){
         
-            mysqli_query($db, $req_update);
-            header("location:profil.php");
-           
-        }
-        
-        if($data["login"] != $login){
-            mysqli_query($db, $req_update);
-            header("location:connexion.php");
-           
-        
-            
-        }
-        if($data["password"] != $password){
-        
-            mysqli_query($db, $req_update);
-            header("location:profil.php");
-            
-
-        }
       
     } 
     else{
         $wrongpwd="Mot de passe différent" ;
     }   
+   
+    
  
     
     
 }
-else{
-    $message="Votre profil a été mis à jour avec succès";
-}
+
 
 
 ?>
@@ -81,6 +61,7 @@ else{
 </head>
 <body>
     <header>
+        <?php include("header.php");?>
         
     </header>
     <main>

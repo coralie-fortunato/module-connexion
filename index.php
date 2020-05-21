@@ -14,32 +14,7 @@ require_once "function.php"
 </head>
 <body>
 <header>
-    <?php if(!is_connected()):?>
-    <nav>
-        <ul>
-        <li>Menu</li>
-        <li><a href="connexion.php">Se connecter</a></li>
-        <li><a href="inscription.php">S'inscrire</a></li>
-        
-        
-        </ul>
-    </nav>
-<?php endif; ?>
-    <?php if(is_connected()):?>
-        <nav>
-            <ul>
-            <li>Menu</li>
-            <li>Bonjour <?= $_SESSION["login"]?> </li>
-            <li><a href="profil.php">Mon profil</a></li>
-            <li><a href="logout.php">Se déconnecter</a></li>
-            
-            </ul>
-        </nav>
-        <?php endif; ?>
-
-   
-
-
+    <?php include("header.php");?>
 
 </header>
 <main class="accueil">
