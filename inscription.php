@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'function.php';
 $db= mysqli_connect("localhost","root","","moduleconnexion");
 
 $wrongpwd=null;
@@ -35,7 +36,7 @@ if(isset($_POST["connected"])){
         
     }
 }
-
+mysqli_close($db);
 ?>
 
 
@@ -45,22 +46,24 @@ if(isset($_POST["connected"])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/font/fontello/css/fontello.css">
     <title>Inscription</title>
 </head>
 <body>
     <header>
-        <h1>Inscription</h1>
+    <?php include("header.php");?>
     </header>
     <main>
+    <h1>Inscription</h1>
         <div class="inscription_container">
             <?php if($wrongpwd): ?>
                 <div class="error">
-                    <?= $wrongpwd ?>
+                    <?php echo $wrongpwd ?>
                 </div>
             <?php endif; ?>
             <?php if($message): ?>
                 <div class="error">
-                    <?= $message ?>
+                    <?php echo $message ?>
                 </div>
             <?php endif; ?>
             
@@ -81,6 +84,9 @@ if(isset($_POST["connected"])){
         </div>
 
     </main>
+    <footer>
+    <?php include("footer.php");?>
+    </footer>
 
     
 </body>

@@ -1,19 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 *{
     box-sizing: border-box;
-    
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
 
 }
 header{
-    height: 10vh;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 header h1{
     font-family: 'Pacifico', cursive;
     
+    
+}
+.head{
+    width: 20%;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    
+}
+.hello-user{
+    font-weight: bold;
+    padding: 1em;
+    background-color: #273c75;
+    border-radius: 10px;
+    color: white;
+}
+nav{
+    padding: 1em;
+    font-weight: bold;
 }
 nav ul{
     display: flex;
@@ -22,23 +46,132 @@ nav ul{
 }
 a{
     text-decoration: none;
+    font-size: larger;
     color: black;
 }
+.nav-link:hover{
+    transform: scale(1.2);
+    transition: 1s;
+   
+}
 main{
-    background: url(src/img/mockup-863469_1920.jpg) no-repeat center ;
-    background-size:cover;
-    height: 100vh;
-    font-family: 'Roboto', sans-serif;
-}  
+    background-color: #f5f6fa;
+}
+/*FOOTER**/
+footer{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 20vh;
+}
+.nav-footer{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#icon1:before{
+    content: "f";
+    font-family: 'fontello';
+    font-weight: bold;
+    font-size: 1em;   
+    padding: 1em;
+    background-color: #273c75;
+    border-radius: 50%;
+    color: white;
 
+}
+
+#icon2:before{
+    content: "i";
+    font-family: 'fontello';
+    font-weight: bold;
+    font-size: 1em;
+    background-color: #273c75;
+    border-radius: 50%;
+    color: white;
+    padding: 1em;
+}
+
+#icon3:before{
+    content: "y";
+    font-family: 'fontello';
+    font-weight: bold;
+    font-size: 1em;
+    background-color: #273c75;
+    border-radius: 50%;
+    color: white;
+    padding: 1em;
+}
+
+#icon4:before{
+    content: "p";
+    font-family: 'fontello';
+    font-weight: bold;
+    font-size: 1em;
+    background-color: #273c75;
+    border-radius: 50%;
+    color: white;
+    padding: 1em;
+}
+.icons:hover{
+    transform: scale(1.2);
+    transition: 1s;
+}
+/*FIN FOOTER*/
+/*Page accueil*/
+.main-connected{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+.main-connected h1{
+    margin-bottom:1em;
+    margin-top:1em;
+}
+.connected-content{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+.all-article{
+    display: flex;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+    width:40%;
+    margin-bottom: 2em;
+    background-color: white;
+}
+.content-article{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    
+}
+.content-article a{
+    color: #273c75;
+    font-weight: bold;
+
+}
+.picture{
+    width: 40%;
+}
+.picture img{
+    width: 100%;
+}
 .accueil-titre{
     color: white;
     font-size: 5em;
     margin: 5%;
 }
 .container{
+    background: url(src/img/mockup-863469_1920.jpg) no-repeat center ;
+    background-size:cover;
     width: 50%;
-    height: 80vh;
     height: 80vh;
     width: 100%;
     display: flex;
@@ -64,15 +197,16 @@ main{
 
 }
 
+
 /*Inscription*/
 .inscription_container{
-    height: 80vh;
+    height: 100vh;
 }
 form{
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
+    
     text-align: center;
     height: 100%;
 
@@ -83,7 +217,8 @@ label{
 input{
     width:30%;
     height: 8%;
-    border-radius: 10px;
+    border: 1px solid #273c75;
+    background: transparent;
 }
 button{
    margin-top: 2%;
@@ -111,17 +246,20 @@ button{
 /* Page administrateur*/
 .main_admin{
     background: linear-gradient(135deg, #1e5799 0%,#2989d8 39%,#2989d8 39%,#2989d8 42%,#207cca 45%,#2989d8 50%,#7db9e8 56%,#7db9e8 56%);
-    height: 90vh;
+    height: 80vh;
+    
+    
     
 }
 .main_admin h1{
     color: white;
 }
 .main_content{
-    height: 100%;
+    height: 50%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items:center;
 }
 .table_admin {

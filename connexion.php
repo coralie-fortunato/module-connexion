@@ -40,7 +40,7 @@ if(!empty($_POST["login"]) && !empty($_POST["password"])) {
    
 }
 
-
+mysqli_close($db);
 
 
 
@@ -51,6 +51,7 @@ if(!empty($_POST["login"]) && !empty($_POST["password"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/font/fontello/css/fontello.css">
     <title>Document</title>
 </head>
 <body>
@@ -73,6 +74,9 @@ if(!empty($_POST["login"]) && !empty($_POST["password"])) {
             <button type="submit" name="connected">Se connecter</button>
         </form>
     </main>
+    <footer>
+        <?php include("footer.php");?>
+    </footer>
     
 </body>
 </html>
