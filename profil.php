@@ -79,16 +79,7 @@ mysqli_close($db);
                     <?php echo $wrongpwd ?>
                 </div>
             <?php endif; ?>
-            <?php if($message): ?>
-                <div class="error">
-                    <?= $message ?>
-                </div>
-            <?php endif; ?>
-            <?php if(isset($message_login)): ?>
-                <div class="error">
-                    <?php echo $message_login ?>
-                </div>
-            <?php endif; ?>
+         
             
             <form action="" method="post" id="inscription">
                 <?php
